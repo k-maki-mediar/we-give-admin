@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import SelectGroupOrgType from "@/components/SelectGroup/SelectGroupOrgType";
 
+
 export const metadata: Metadata = {
     title: "Next.js Settings | TailAdmin - Next.js Dashboard Template",
     description:
@@ -15,7 +16,6 @@ const OrgProfile = () => {
         <DefaultLayout>
             <div className="mx-auto max-w-270">
                 <Breadcrumb pageName="団体プロフィール" />
-
                 <div className="grid grid-cols-5 gap-8">
                     <div className="col-span-5 xl:col-span-3">
                         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">

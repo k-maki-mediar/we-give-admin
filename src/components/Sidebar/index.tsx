@@ -114,7 +114,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item org-info --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === "/" || pathname.includes("org-info")
+                  pathname === "/" || pathname.includes("orgInfo")
                 }
               >
                 {(handleClick, open) => {
@@ -123,7 +123,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       <Link
                         href="#"
                         className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${(pathname === "/" ||
-                          pathname.includes("org-info")) &&
+                          pathname.includes("orgInfo")) &&
                           "bg-graydark dark:bg-meta-4"
                           }`}
                         onClick={(e) => {
@@ -193,8 +193,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li> */}
                           <li>
                             <Link
-                              href="/org-info/org-profile"
-                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === "/dashboard/analytics" &&
+                              href="/orgInfo/org-profile"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === "/orgInfo/org-profile" &&
                                 "text-white"
                                 } `}
                             >
@@ -204,6 +204,20 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                               </span> */}
                             </Link>
                           </li>
+                          <li>
+                            <Link
+                              href="/orgInfo/org-settings"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === "/orgInfo/org-settings" &&
+                                "text-white"
+                                } `}
+                            >
+                              設定
+                              {/* <span className="absolute right-4 block rounded bg-primary px-2 py-1 text-xs font-medium text-white">
+                                Pro
+                              </span> */}
+                            </Link>
+                          </li>
+
                           {/* <li>
                             <Link
                               href="/dashboard/marketing"

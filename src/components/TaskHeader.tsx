@@ -111,7 +111,7 @@ const TaskHeader = () => {
                 fill=""
               />
             </svg>
-            Add task
+            task
           </button>
 
           {/* <!-- ===== Task Popup Start ===== --> */}

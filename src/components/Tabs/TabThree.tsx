@@ -12,36 +12,32 @@ const TabThree: React.FC = () => {
       <div className="mb-6 flex flex-wrap gap-5 border-b border-stroke dark:border-strokedark sm:gap-10">
         <Link
           href="#"
-          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${
-            openTab === 1 ? activeClasses : inactiveClasses
-          }`}
+          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 1 ? activeClasses : inactiveClasses
+            }`}
           onClick={() => setOpenTab(1)}
         >
           Profile
         </Link>
         <Link
           href="#"
-          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${
-            openTab === 2 ? activeClasses : inactiveClasses
-          }`}
+          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 2 ? activeClasses : inactiveClasses
+            }`}
           onClick={() => setOpenTab(2)}
         >
           Password
         </Link>
         <Link
           href="#"
-          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${
-            openTab === 3 ? activeClasses : inactiveClasses
-          }`}
+          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 3 ? activeClasses : inactiveClasses
+            }`}
           onClick={() => setOpenTab(3)}
         >
           Team
         </Link>
         <Link
           href="#"
-          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${
-            openTab === 4 ? activeClasses : inactiveClasses
-          }`}
+          className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 4 ? activeClasses : inactiveClasses
+            }`}
           onClick={() => setOpenTab(4)}
         >
           Notification
