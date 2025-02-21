@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import DonProSettings from "./DonProSettings";
+import DonAccountSettings from "./DonAccountSettings";
+import FinancialInfo from "./FinancialInfo";
+import FundSettings from "./FundSettings";
+import OrgType from "./OrgType";
 
 const OrgSettings: React.FC = () => {
     const [openTab, setOpenTab] = useState(1);
@@ -23,7 +27,7 @@ const OrgSettings: React.FC = () => {
                             }`}
                         onClick={() => setOpenTab(1)}
                     >
-                        寄付受付設定
+                        寄付受付
                     </Link>
                     <Link
                         href="#"
@@ -47,6 +51,14 @@ const OrgSettings: React.FC = () => {
                             }`}
                         onClick={() => setOpenTab(4)}
                     >
+                        寄付金管理
+                    </Link>
+                    <Link
+                        href="#"
+                        className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 5 ? activeClasses : inactiveClasses
+                            }`}
+                        onClick={() => setOpenTab(5)}
+                    >
                         団体属性
                     </Link>
                 </div>
@@ -60,28 +72,22 @@ const OrgSettings: React.FC = () => {
                     <div
                         className={`leading-relaxed ${openTab === 2 ? "block" : "hidden"}`}
                     >
-                        Tab2 ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        luctus ligula nec dolor placerat, a consequat elit volutpat. Quisque
-                        nibh lacus, posuere et turpis in, pretium facilisis nisl. Proin congue
-                        sem vel sollicitudin sagittis. Class aptent taciti sociosqu ad litora
-                        torquent per conubia nostra, per
+                        <DonAccountSettings />
                     </div>
                     <div
                         className={`leading-relaxed ${openTab === 3 ? "block" : "hidden"}`}
                     >
-                        Tab3 ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        luctus ligula nec dolor placerat, a consequat elit volutpat. Quisque
-                        nibh lacus, posuere et turpis in, pretium facilisis nisl. Proin congue
-                        sem vel sollicitudin sagittis. Class aptent taciti sociosqu ad litora
-                        torquent per conubia nostra, per
+                        <FinancialInfo />
                     </div>
                     <div
                         className={`leading-relaxed ${openTab === 4 ? "block" : "hidden"}`}
                     >
-                        Tab4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia
-                        nisi, doloribus nulla cumque molestias corporis eaque harum vero! Quas
-                        sit odit optio debitis nulla quisquam, dolorum quaerat animi iusto
-                        quod.
+                        <FundSettings />
+                    </div>
+                    <div
+                        className={`leading-relaxed ${openTab === 5 ? "block" : "hidden"}`}
+                    >
+                        <OrgType />
                     </div>
                 </div>
             </div>

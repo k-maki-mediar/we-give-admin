@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import SwitcherThree from "@/components/Switchers/SwitcherThree";
-import FormConectPopup from "./FormConectPopup";
+import FormConnectPopup from "./Popups/FormConnectPopup";
 
 const DonProSettings = () => {
 
@@ -84,7 +83,7 @@ const DonProSettings = () => {
                             </button>
 
                             {/* <!-- ===== FormConect Popup Start ===== --> */}
-                            <FormConectPopup popupOpen={popupOpen} setPopupOpen={setPopupOpen} />
+                            <FormConnectPopup popupOpen={popupOpen} setPopupOpen={setPopupOpen} />
                             {/* <!-- ===== FormConect Popup End ===== --> */}
                         </div>
                     </div>

@@ -5,7 +5,7 @@ interface FormConectPopupProps {
     setPopupOpen: (open: boolean) => void;
 }
 
-const FormConectPopup: React.FC<FormConectPopupProps> = (props) => {
+const FormConnectPopup: React.FC<FormConectPopupProps> = (props) => {
     const [files, setFiles] = useState<FileList | null>(null);
 
     return (
@@ -196,4 +196,4 @@ const FormConectPopup: React.FC<FormConectPopupProps> = (props) => {
     );
 };
 
-export default FormConectPopup;
+export default FormConnectPopup;
