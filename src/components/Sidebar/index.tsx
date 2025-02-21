@@ -206,6 +206,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                           </li>
                           <li>
                             <Link
+                              href="/orgInfo/org-member"
+                              className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === "/orgInfo/org-profile" &&
+                                "text-white"
+                                } `}
+                            >
+                              メンバー管理
+                              {/* <span className="absolute right-4 block rounded bg-primary px-2 py-1 text-xs font-medium text-white">
+                                Pro
+                              </span> */}
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
                               href="/orgInfo/org-settings"
                               className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${pathname === "/orgInfo/org-settings" &&
                                 "text-white"
