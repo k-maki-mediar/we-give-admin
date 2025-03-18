@@ -1,5 +1,5 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import MemberList from "@/components/OrgMember";
+import BackButton from "@/components/BackButton/BackButton";
+import ProjectID from "@/components/ProjectID/ProjectID";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     // other metadata
 };
 
-const OrgMemberPage = () => {
+const ProjectListPage = () => {
     return (
         <DefaultLayout>
-            <Breadcrumb pageName="メンバー管理" />
-            <MemberList />
+            <BackButton />
+            <ProjectID />
         </DefaultLayout>
     );
 };
 
-export default OrgMemberPage;
+export default ProjectListPage;

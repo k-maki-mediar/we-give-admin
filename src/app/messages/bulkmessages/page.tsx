@@ -1,5 +1,5 @@
 import React from "react";
-import OrgSettings from "@/components/OrgSettings";
+import BulkMessages from "@/components/BulkMessages";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     // other metadata
 };
 
-const OrgSttingsPage = () => {
+const BulkMessagePage = () => {
     return (
         <DefaultLayout>
-            <OrgSettings />
+            <BulkMessages />
         </DefaultLayout>
     );
 };
 
-export default OrgSttingsPage;
+export default BulkMessagePage;

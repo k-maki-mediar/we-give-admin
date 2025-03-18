@@ -1,5 +1,5 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import MemberList from "@/components/OrgMember";
+import DataTableHighDonation from "@/components/HighDonList/DataTableHighDonation";
 
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     // other metadata
 };
 
-const OrgMemberPage = () => {
+const DonatiouListPage = () => {
     return (
         <DefaultLayout>
-            <Breadcrumb pageName="メンバー管理" />
-            <MemberList />
+            <Breadcrumb pageName="高額寄付一覧" />
+            <DataTableHighDonation />
         </DefaultLayout>
     );
 };
 
-export default OrgMemberPage;
+export default DonatiouListPage;

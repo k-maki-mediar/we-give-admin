@@ -1,5 +1,4 @@
 import React from "react";
-import Messages from "@/components/Messages";
 import DonorsChat from "@/components/DonorsChat/DonorsChat";
 
 import { Metadata } from "next";
@@ -12,12 +11,12 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const MessagesPage = () => {
+const DonorsChatPage = () => {
   return (
     <DefaultLayout>
-      <Messages />
+      <DonorsChat />
     </DefaultLayout>
   );
 };
 
-export default MessagesPage;
+export default DonorsChatPage;

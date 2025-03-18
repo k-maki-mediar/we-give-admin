@@ -503,9 +503,8 @@ const DataTableOne = () => {
               onClick={() => {
                 gotoPage(index);
               }}
-              className={`${
-                pageIndex === index && "bg-primary text-white"
-              } mx-1 flex cursor-pointer items-center justify-center rounded-md p-1 px-3 hover:bg-primary hover:text-white`}
+              className={`${pageIndex === index && "bg-primary text-white"
+                } mx-1 flex cursor-pointer items-center justify-center rounded-md p-1 px-3 hover:bg-primary hover:text-white`}
             >
               {index + 1}
             </button>
