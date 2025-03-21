@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import BulkSend from "./BulkSend/BulkSend";
+import DataTableBulkSendHistory from "./BulkSendHistory/DataTableBulkSendHistory";
+import BulkSendSettings from "./BulkSendSettings/BulkSendSettings";
+import DataTableTemplate from "./BulkMessagesTemplate/DataTableTemplate";
 
 
 const BulkMessages: React.FC = () => {
@@ -24,13 +27,13 @@ const BulkMessages: React.FC = () => {
                     >
                         メッセージ一括送信
                     </Link>
-                    {/* <Link
+                    <Link
                         href="#"
                         className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 2 ? activeClasses : inactiveClasses
                             }`}
                         onClick={() => setOpenTab(2)}
                     >
-                        寄付振込先口座
+                        一括送信履歴
                     </Link>
                     <Link
                         href="#"
@@ -38,7 +41,7 @@ const BulkMessages: React.FC = () => {
                             }`}
                         onClick={() => setOpenTab(3)}
                     >
-                        団体運営資金情報
+                        送信設定
                     </Link>
                     <Link
                         href="#"
@@ -46,16 +49,9 @@ const BulkMessages: React.FC = () => {
                             }`}
                         onClick={() => setOpenTab(4)}
                     >
-                        寄付金管理
+                        メッセージテンプレート
                     </Link>
-                    <Link
-                        href="#"
-                        className={`border-b-2 py-4 text-sm font-medium hover:text-primary md:text-base ${openTab === 5 ? activeClasses : inactiveClasses
-                            }`}
-                        onClick={() => setOpenTab(5)}
-                    >
-                        団体属性
-                    </Link> */}
+
                 </div>
 
                 <div>
@@ -64,26 +60,21 @@ const BulkMessages: React.FC = () => {
                     >
                         <BulkSend />
                     </div>
-                    {/* <div
+                    <div
                         className={`leading-relaxed ${openTab === 2 ? "block" : "hidden"}`}
                     >
-                        <DonAccountSettings />
+                        <DataTableBulkSendHistory />
                     </div>
                     <div
                         className={`leading-relaxed ${openTab === 3 ? "block" : "hidden"}`}
                     >
-                        <FinancialInfo />
+                        <BulkSendSettings />
                     </div>
                     <div
                         className={`leading-relaxed ${openTab === 4 ? "block" : "hidden"}`}
                     >
-                        <FundSettings />
+                        <DataTableTemplate />
                     </div>
-                    <div
-                        className={`leading-relaxed ${openTab === 5 ? "block" : "hidden"}`}
-                    >
-                        <OrgType />
-                    </div> */}
                 </div>
             </div>
         </>

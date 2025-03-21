@@ -16,38 +16,43 @@ import CheckboxDonationSelect from "./CheckboxDonationSelect";
 import BadgeDonStatus from "./BadgeDonStatus";
 import DropdownProStatus from "../ProjectStatus/DropdownsProStatus";
 
-// インターフェース定義を Funds に変更
+// インターフェース定義を Funds に変更し、status を追加
 interface Funds {
     id: string;
     name: string;
     destination: string;
+    status: string; // ← 追加
     amounts: string;
 }
 
-// サンプルデータも Funds[] に合わせる
+// サンプルデータにも status を追加
 const dataOne: Funds[] = [
     {
         id: "001",
         name: "山田　太郎",
         destination: "Destination X",
+        status: "送金済み",
         amounts: "$1,000",
     },
     {
         id: "002",
         name: "山田　太郎",
         destination: "Destination Y",
+        status: "入金待ち",
         amounts: "$2,000",
     },
     {
         id: "003",
         name: "山田　太郎",
         destination: "Destination Z",
+        status: "送金エラー",
         amounts: "$3,000",
     },
     // ...他のデータ
 ];
 
-// カラム定義も Funds 型に合わせる（actionカラムもそのまま残す）
+// カラム定義も Funds 型に合わせて変更
+// 「寄付先(destination)」と「金額(amounts)」の間にステータス列を追加
 const columns: Column<Funds>[] = [
     {
         Header: "Name/Id",
@@ -62,6 +67,11 @@ const columns: Column<Funds>[] = [
     {
         Header: "Destination",
         accessor: "destination",
+    },
+    {
+        Header: "Status",
+        accessor: "status",
+        Cell: ({ row }) => <BadgeDonStatus status={row.original.status} />,
     },
     {
         Header: "Amounts",
@@ -228,12 +238,17 @@ const DataTableFunds = () => {
                                             ? "w-40"
                                             : column.id === "selection"
                                                 ? "w-20"
-                                                : column.id === "amounts"
+                                                : column.id === "status"
                                                     ? "w-40"
-                                                    : ""
+                                                    : column.id === "amounts"
+                                                        ? "w-40"
+                                                        : ""
                                     }
                                     style={
-                                        hasSelectedRows && column.id !== "selection" && colKey !== 3 && colKey !== 4
+                                        hasSelectedRows &&
+                                            column.id !== "selection" &&
+                                            colKey !== 4 && // amounts の列
+                                            colKey !== 5   // actions の列
                                             ? { pointerEvents: "none" }
                                             : {}
                                     }
@@ -275,7 +290,7 @@ const DataTableFunds = () => {
                                                 </>
                                             ) : (
                                                 <>
-                                                    {colKey === 3 && (
+                                                    {/* {colKey === 4 && (
                                                         <div className="w-full flex">
                                                             <DropdownProStatus
                                                                 statuses={statuses}
@@ -283,8 +298,8 @@ const DataTableFunds = () => {
                                                                 onChangeStatus={(newStatus) => setProjectStatus(newStatus)}
                                                             />
                                                         </div>
-                                                    )}
-                                                    {colKey === 4 && (
+                                                    )} */}
+                                                    {colKey === 5 && (
                                                         <div className="w-full flex">
                                                             <button
                                                                 onClick={handleDownload}
@@ -337,7 +352,11 @@ const DataTableFunds = () => {
                                     <td
                                         {...cell.getCellProps()}
                                         key={cellKey}
-                                        className={cell.column.id === "status" ? "text-center" : ""}
+                                        className={
+                                            cell.column.id === "status" ? "text-center" :
+                                                cell.column.id === "amounts" ? "text-center" :
+                                                    ""
+                                        }
                                     >
                                         {cell.render("Cell")}
                                     </td>

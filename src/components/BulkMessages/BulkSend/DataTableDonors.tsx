@@ -10,11 +10,12 @@ import {
     Column,
     FilterProps,
 } from "react-table";
+import { useRouter } from "next/navigation";
 import ColumnFilter from "@/components/DataTables/ColumnFilter";
-import DropdownDonationEdit from "@/components/DonID/DropdownDonationEdit";
 import CheckboxDonationSelect from "@/components/DonationFundsList/CheckboxDonationSelect";
 import BadgeDonStatus from "@/components/DonList/BadgeDonStatus";
 import DropdownProStatus from "@/components/ProjectStatus/DropdownsProStatus";
+import DropdownDataTable from "@/components/Dropdowns/DropdownDataTable";
 
 interface Employee {
     id: string;
@@ -76,6 +77,27 @@ const dataOne: Employee[] = [
     // ...他のデータ
 ];
 
+const menuItems = [
+    {
+        label: "詳細",
+        href: "/messages/bulksendgroup", // 詳細画面への遷移先
+    },
+    {
+        label: "編集",
+        onClick: () => {
+            // 編集処理など独自の処理を実行
+            console.log("編集ボタンがクリックされました");
+        },
+    },
+    {
+        label: "削除",
+        onClick: () => {
+            // 削除処理など独自の処理を実行
+            console.log("削除ボタンがクリックされました");
+        },
+    },
+];
+
 const columns: Column<Employee>[] = [
     {
         Header: "Name/Id",
@@ -113,7 +135,8 @@ const columns: Column<Employee>[] = [
         id: "actions",
         Cell: () => (
             <div className="flex justify-center">
-                <DropdownDonationEdit />
+                {/* <DropdownDonationEdit /> */}
+                <DropdownDataTable menuItems={menuItems} />
             </div>
         ),
         disableSortBy: true,
@@ -121,6 +144,7 @@ const columns: Column<Employee>[] = [
 ];
 
 const DataTableDonors = () => {
+    const router = useRouter();
     const data = useMemo(() => dataOne, []);
     const defaultColumn = useMemo(
         () => ({
@@ -329,8 +353,9 @@ const DataTableDonors = () => {
                                                     )}
                                                     {colKey === 7 && (
                                                         <div className="w-full flex">
+
                                                             <button
-                                                                onClick={handleDownload}
+                                                                onClick={() => router.push("/messages/messagesEdit")}
                                                                 className="ml-auto inline-flex items-center gap-2.5 rounded bg-primary px-4 py-2.5 font-medium text-white hover:bg-opacity-90"
                                                             >
                                                                 Download
@@ -353,6 +378,7 @@ const DataTableDonors = () => {
                                                                     </defs>
                                                                 </svg>
                                                             </button>
+
                                                         </div>
                                                     )}
                                                 </>

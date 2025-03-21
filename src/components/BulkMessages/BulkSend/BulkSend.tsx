@@ -1,6 +1,8 @@
-import BulkSendGroup from "./BulkSendGroup";
+import BulkSendGroupButton from "./BulkSendGroupButton";
 import DataTableDonors from "./DataTableDonors";
 import { Metadata } from "next";
+import { useRouter } from "next/navigation";
+
 
 export const metadata: Metadata = {
     title: "Next.js CRM Dashboard | TailAdmin - Next.js Dashboard Template",
@@ -10,22 +12,31 @@ export const metadata: Metadata = {
 };
 
 const BulkSend: React.FC = () => {
-    // クリック時の処理例
+
+    const router = useRouter();
+
+    const groupRouteMap: { [key: string]: string } = {
+        "前回の寄付から1年以上経過した寄付者": "/messages/bulksendgroup",
+        "別のグループ": "/anotherpath",
+        "グループ3": "/group3path",
+        // 必要に応じて追加
+    };
+
     const handleGroupClick = (groupName: string) => {
-        alert(`${groupName} がクリックされました`);
-        // 必要に応じてルーティングや処理を追加
+        const path = groupRouteMap[groupName] || `/bulk-send/${encodeURIComponent(groupName)}`;
+        router.push(path);
     };
 
     return (
         <div className="p-6">
             {/* グループ用のボタンを2つ表示 */}
             <div className="space-y-2 mb-10">
-                <BulkSendGroup
+                <BulkSendGroupButton
                     groupName="前回の寄付から1年以上経過した寄付者"
                     count={100}
                     onClick={() => handleGroupClick("前回の寄付から1年以上経過した寄付者")}
                 />
-                <BulkSendGroup
+                <BulkSendGroupButton
                     groupName="別のグループ"
                     count={50}
                     onClick={() => handleGroupClick("別のグループ")}

@@ -10,7 +10,7 @@ type GroupButtonProps = {
     onClick?: () => void;
 };
 
-const BulkSendGroup: React.FC<GroupButtonProps> = ({ groupName, count, onClick }) => {
+const BulkSendGroupButton: React.FC<GroupButtonProps> = ({ groupName, count, onClick }) => {
     return (
         <button
             onClick={onClick}
@@ -24,4 +24,4 @@ const BulkSendGroup: React.FC<GroupButtonProps> = ({ groupName, count, onClick }
     );
 };
 
-export default BulkSendGroup;
+export default BulkSendGroupButton;
